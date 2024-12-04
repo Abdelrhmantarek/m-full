@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
@@ -16,7 +17,7 @@
     <link
       rel="stylesheet"
       id="dina-bootstrap-css-css"
-      href="css/bootstrap/css/bootstrap.min.css"
+      href="{% static 'css/bootstrap/css/bootstrap.min.css' %}"
       type="text/css"
       media="all"
     />
@@ -24,7 +25,7 @@
     <link
       rel="stylesheet"
       id="dina-font-awesome-css"
-      href="css/fontawesome/css/font-awesome.min.css"
+      href="{% static 'css/fontawesome/css/font-awesome.min.css' %}"
       type="text/css"
       media="all"
     />
@@ -32,16 +33,24 @@
     <link
       rel="stylesheet"
       id="dina-style-css-css"
-      href="style.css"
+      href="{% static 'style.css' %}"
       type="text/css"
       media="all"
     />
     <!-- favicons -->
-    <link rel="icon" href="images/icons/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" href="images/icons/favicon-192x192.png" sizes="192x192" />
+    <link
+      rel="icon"
+      href="{% static 'images/icons/favicon-32x32.png' %}"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      href="{% static 'images/icons/favicon-192x192.png' %}"
+      sizes="192x192"
+    />
     <link
       rel="apple-touch-icon-precomposed"
-      href="images/icons/favicon-180x180.png"
+      href="{% static 'images/icons/favicon-180x180.png' %}"
     />
   </head>
   <body class="body-header1">
@@ -267,13 +276,13 @@
         <nav class="navbar-1">
           <!-- TOP LEFT PAGE TEXT  -->
           <div class="top-location">
-            <span class="info-txt">40 Park Ave, Brooklyn, </span>
-            <span class="info-txt">New York 70250</span>
+            <span class="info-txt">El Sheikh Zayed City. </span>
+            <span class="info-txt">Giza Government</span>
           </div>
           <!-- TOP RIGHT PAGE TEXT  -->
           <div class="book-now">
             <span class="info-txt">Book Now</span>
-            <span class="info-txt">+1-222-333-444</span>
+            <span class="info-txt">+20-122-648-3195</span>
           </div>
           <!-- MOBILE BUTTON NAV  -->
           <div class="nav-button-holder nav-btn-mobile inactive">
@@ -285,100 +294,103 @@
           <div class="nav-content-1">
             <!-- LOGO -->
             <div class="logo-1">
-              <a href="index.html"
-                ><img class="img-fluid" src="images/logo-dina-white.png" alt=""
+              <a href="/"
+                ><img
+                  class="img-fluid"
+                  src="{% static 'images/logo-dina-white.png' %}"
+                  alt=""
               /></a>
             </div>
             <!-- MENU-DESKTOP -->
             <div class="nav-holder nav-holder-1 nav-holder-desktop">
               <ul id="menu-menu-1" class="menu-nav menu-nav-1">
                 <li class="menu-item current-menu-item">
-                  <a href="index.html">Home</a>
+                  <a href="/">Home</a>
                 </li>
                 <li class="menu-item">
-                  <a href="menu.html">Menu</a>
-                </li>
-                <!-- <li class="menu-item menu-item-has-children">
-								<a href="#">Pages</a>
-								<ul class="sub-menu">
-								  <li class="menu-item menu-item-has-children">
-									<a href="index.html">Headers</a>
-									<ul class="sub-menu">
-									  <li class="menu-item">
-										<a href="index.html">Header 1</a>
-									  </li>
-									  <li class="menu-item">
-										<a href="header-2.html">Header 2</a>
-									  </li>
-									  <li class="menu-item">
-										<a href="header-3.html">Header 3</a>
-									  </li>
-									  <li class="menu-item">
-										<a href="header-4.html">Header 4</a>
-									  </li>
-									  <li class="menu-item">
-										<a href="header-5.html">Header 5</a>
-									  </li>
-									  <li class="menu-item">
-										<a href="header-6.html">Header 6</a>
-									  </li>
-									</ul>
-								  </li>
-								  <li class="menu-item">
-									<a href="about-us.html">About Us</a>
-								  </li>
-								  <li class="menu-item">
-									<a href="about-me.html">About Me</a>
-								  </li>
-								  <li class="menu-item menu-item-has-children">
-									<a href="team.html">Team</a>
-									<ul class="sub-menu">
-									  <li class="menu-item">
-										<a href="team-2-cols.html">Team 2 Cols</a>
-									  </li>
-									  <li class="menu-item">
-										<a href="team-3-cols.html">Team 3 Cols</a>
-									  </li>
-									  <li class="menu-item">
-										<a href="team.html">Team 4 Cols</a>
-									  </li>
-									</ul>
-								  </li>
-								  <li class="menu-item">
-									<a href="services.html">Services</a>
-								  </li>
-								  <li class="menu-item"><a href="faq.html">FAQ</a></li>
-								  <li class="menu-item">
-									<a href="404-error.html">404 Page</a>
-								  </li>
-								</ul>
-							  </li> -->
-                <li class="menu-item">
-                  <a href="reservation.html">Reservation</a>
+                  <a href="/menu">Menu</a>
                 </li>
                 <!-- <li class="menu-item menu-item-has-children">
-								<a href="gallery-3-cols.html">Gallery</a>
-								<ul class="sub-menu">
-								  <li class="menu-item">
-									<a href="gallery-3-cols.html">Gallery 3 Cols</a>
-								  </li>
-								  <li class="menu-item">
-									<a href="gallery-4-cols.html">Gallery 4 Cols</a>
-								  </li>
-								  <li class="menu-item">
-									<a href="gallery-full-screen-3-cols.html"
-									  >Gallery Full Screen 3 Cols</a
-									>
-								  </li>
-								  <li class="menu-item">
-									<a href="gallery-full-screen-4-cols.html"
-									  >Gallery Full Screen 4 Cols</a
-									>
-								  </li>
-								</ul>
-							  </li> -->
+                  <a href="#">Pages</a>
+                  <ul class="sub-menu">
+                    <li class="menu-item menu-item-has-children">
+                      <a href="index.html">Headers</a>
+                      <ul class="sub-menu">
+                        <li class="menu-item">
+                          <a href="index.html">Header 1</a>
+                        </li>
+                        <li class="menu-item">
+                          <a href="header-2.html">Header 2</a>
+                        </li>
+                        <li class="menu-item">
+                          <a href="header-3.html">Header 3</a>
+                        </li>
+                        <li class="menu-item">
+                          <a href="header-4.html">Header 4</a>
+                        </li>
+                        <li class="menu-item">
+                          <a href="header-5.html">Header 5</a>
+                        </li>
+                        <li class="menu-item">
+                          <a href="header-6.html">Header 6</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="menu-item">
+                      <a href="about-us.html">About Us</a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="about-me.html">About Me</a>
+                    </li>
+                    <li class="menu-item menu-item-has-children">
+                      <a href="team.html">Team</a>
+                      <ul class="sub-menu">
+                        <li class="menu-item">
+                          <a href="team-2-cols.html">Team 2 Cols</a>
+                        </li>
+                        <li class="menu-item">
+                          <a href="team-3-cols.html">Team 3 Cols</a>
+                        </li>
+                        <li class="menu-item">
+                          <a href="team.html">Team 4 Cols</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="menu-item">
+                      <a href="services.html">Services</a>
+                    </li>
+                    <li class="menu-item"><a href="faq.html">FAQ</a></li>
+                    <li class="menu-item">
+                      <a href="404-error.html">404 Page</a>
+                    </li>
+                  </ul>
+                </li> -->
                 <li class="menu-item">
-                  <a href="contact.html">Contact</a>
+                  <a href="/reservation">Reservation</a>
+                </li>
+                <!-- <li class="menu-item menu-item-has-children">
+                  <a href="gallery-3-cols.html">Gallery</a>
+                  <ul class="sub-menu">
+                    <li class="menu-item">
+                      <a href="gallery-3-cols.html">Gallery 3 Cols</a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="gallery-4-cols.html">Gallery 4 Cols</a>
+                    </li>
+                    <li class="menu-item">
+                      <a href="gallery-full-screen-3-cols.html"
+                        >Gallery Full Screen 3 Cols</a
+                      >
+                    </li>
+                    <li class="menu-item">
+                      <a href="gallery-full-screen-4-cols.html"
+                        >Gallery Full Screen 4 Cols</a
+                      >
+                    </li>
+                  </ul>
+                </li> -->
+                <li class="menu-item">
+                  <a href="/contact">Contact</a>
                 </li>
               </ul>
             </div>
@@ -394,7 +406,7 @@
       <div class="item-content-bkg">
         <div
           class="item-img"
-          style="background-image: url('images/home/about-9.jpg')"
+          style="background-image: url('../static/images/home/about-9.jpg')"
         ></div>
         <div class="inner-desc">
           <h1 class="post-title single-post-title">Menu Grid v3</h1>
@@ -413,7 +425,7 @@
                 <div class="menu-post-border-v3">
                   <div class="menu-post-img-v3">
                     <img
-                      src="images/menu/pork-chops.jpg"
+                      src="{% static 'images/menu/pork-chops.jpg' %}"
                       alt=""
                       loading="lazy"
                       width="400"
@@ -438,7 +450,7 @@
                 <div class="menu-post-border-v3">
                   <div class="menu-post-img-v3">
                     <img
-                      src="images/menu/prime-rib-primer.jpg"
+                      src="{% static 'images/menu/prime-rib-primer.jpg' %}"
                       alt=""
                       loading="lazy"
                       width="400"
@@ -461,7 +473,7 @@
                 <div class="menu-post-border-v3">
                   <div class="menu-post-img-v3">
                     <img
-                      src="images/menu/coconut-curry-fried-chicken.jpg"
+                      src="{% static 'images/menu/coconut-curry-fried-chicken.jpg' %}"
                       alt=""
                       loading="lazy"
                       width="400"
@@ -484,7 +496,7 @@
                 <div class="menu-post-border-v3">
                   <div class="menu-post-img-v3">
                     <img
-                      src="images/menu/sriracha-beef-skewers.jpg"
+                      src="{% static 'images/menu/sriracha-beef-skewers.jpg' %}"
                       alt=""
                       loading="lazy"
                       width="400"
@@ -507,7 +519,7 @@
                 <div class="menu-post-border-v3">
                   <div class="menu-post-img-v3">
                     <img
-                      src="images/menu/roast-chicken.jpg"
+                      src="{% static 'images/menu/roast-chicken.jpg' %}"
                       alt=""
                       loading="lazy"
                       width="400"
@@ -532,7 +544,7 @@
                 <div class="menu-post-border-v3">
                   <div class="menu-post-img-v3">
                     <img
-                      src="images/menu/double-tomato-bruschetta.jpg"
+                      src="{% static 'images/menu/double-tomato-bruschetta.jpg' %}"
                       alt=""
                       loading="lazy"
                       width="400"
@@ -557,7 +569,7 @@
                 <div class="menu-post-border-v3">
                   <div class="menu-post-img-v3">
                     <img
-                      src="images/menu/marinated-grilled-shrimp.jpg"
+                      src="{% static 'images/menu/marinated-grilled-shrimp.jpg' %}"
                       alt=""
                       loading="lazy"
                       width="400"
@@ -580,7 +592,7 @@
                 <div class="menu-post-border-v3">
                   <div class="menu-post-img-v3">
                     <img
-                      src="images/menu/avocado-tomato.jpg"
+                      src="{% static 'images/menu/avocado-tomato.jpg' %}"
                       alt=""
                       loading="lazy"
                       width="400"
@@ -603,7 +615,7 @@
                 <div class="menu-post-border-v3">
                   <div class="menu-post-img-v3">
                     <img
-                      src="images/menu/baked-potato-skins.jpg"
+                      src="{% static 'images/menu/baked-potato-skins.jpg' %}"
                       alt=""
                       loading="lazy"
                       width="400"
@@ -628,7 +640,7 @@
                 <div class="menu-post-border-v3">
                   <div class="menu-post-img-v3">
                     <img
-                      src="images/menu/pork-chops.jpg"
+                      src="{% static 'images/menu/pork-chops.jpg' %}"
                       alt=""
                       loading="lazy"
                       width="400"
@@ -653,7 +665,7 @@
                 <div class="menu-post-border-v3">
                   <div class="menu-post-img-v3">
                     <img
-                      src="images/menu/prime-rib-primer.jpg"
+                      src="{% static 'images/menu/prime-rib-primer.jpg' %}"
                       alt=""
                       loading="lazy"
                       width="400"
@@ -676,7 +688,7 @@
                 <div class="menu-post-border-v3">
                   <div class="menu-post-img-v3">
                     <img
-                      src="images/menu/coconut-curry-fried-chicken.jpg"
+                      src="{% static 'images/menu/coconut-curry-fried-chicken.jpg' %}"
                       alt=""
                       loading="lazy"
                       width="400"
@@ -788,18 +800,18 @@
     </footer>
     <!-- /FOOTER -->
     <!-- JS -->
-    <script src="js/jquery.js"></script>
-    <script src="js/jquery-migrate.min.js"></script>
-    <script src="css/bootstrap/js/popper.min.js"></script>
-    <script src="css/bootstrap/js/bootstrap.min.js"></script>
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/jquery.fitvids.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/owl-carousel/owl.carousel.min.js"></script>
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/jquery-migrate.min.js' %}"></script>
+    <script src="{% static 'css/bootstrap/js/popper.min.js' %}"></script>
+    <script src="{% static 'css/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'js/jquery.fitvids.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/owl-carousel/owl.carousel.min.js' %}"></script>
     <!-- MAIN JS -->
-    <script src="js/init.js"></script>
+    <script src="{% static 'js/init.js' %}"></script>
     <!-- CONTACT FORM JS -->
-    <script src="js/jquery.form.min.js"></script>
-    <script src="js/contactform.js"></script>
+    <script src="{% static 'js/jquery.form.min.js' %}"></script>
+    <script src="{% static 'js/contactform.js' %}"></script>
   </body>
 </html>
