@@ -443,10 +443,57 @@
                     like to share with us? Feel free to contact us.
                   </p>
                   <div id="contact-form-holder">
-                    <form
+                    <form method="post" id="contact-form">
+                      {% csrf_token %}
+                      <label>Name</label>
+                      <p>
+                        <input type="text" name="name" class="reservation-fields" />
+                      </p>
+                      <label>Email</label>
+                      <p>
+                        <input type="text" name="email" class="reservation-fields" />
+                      </p>
+                      <label>Subject</label>
+                      <p>
+                        <input type="text" name="subject" class="reservation-fields" />
+                      </p>
+                      <label>Message</label>
+                      <p>
+                        <textarea name="message" id="msg-contact" class="reservation-fields" rows="7"></textarea>
+                      </p>
+                      <p class="antispam">
+                        Leave this empty: <input type="text" name="url" />
+                      </p>
+                      <p class="contact-btn">
+                        <input type="submit" value="Send message" id="submit" />
+                      </p>
+                    </form>
+                    
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                    <script>
+                      $(document).ready(function () {
+                        $("#contact-form").on("submit", function (e) {
+                          e.preventDefault(); // Prevent default form submission
+                          let formData = $(this).serialize(); // Serialize form data
+                    
+                          $.ajax({
+                            type: "POST",
+                            url: "{% url 'submit_contact' %}", // Reuse the same URL as homepage
+                            data: formData,
+                            success: function (response) {
+                              alert("Message sent successfully!");
+                              $("#contact-form")[0].reset(); // Reset the form on success
+                            },
+                            error: function (xhr) {
+                              alert("Something went wrong. Please try again.");
+                            },
+                          });
+                        });
+                      });
+                    </script>                    
+                    <!-- <form
                       method="post"
                       id="contact-form"
-                      action="include/contact-process.php"
                     >
                       <label>Name</label>
                       <p>
@@ -487,7 +534,7 @@
                       <p class="contact-btn">
                         <input type="submit" value="Send message" id="submit" />
                       </p>
-                    </form>
+                    </form> -->
                   </div>
                   <!-- contact-form-holder-->
                   <div id="output-contact"></div>

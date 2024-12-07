@@ -439,18 +439,15 @@
             </div>
 
             <div class="reservation_txt">
-              <form
-                method="post"
-                id="reservation-form"
-                action="include/reservation-process.php"
-              >
+              <form method="post" id="reservation-form">
+                {% csrf_token %}
                 <div class="row">
                   <div class="col-md-4">
                     <label>Name*</label>
                     <p>
                       <input
                         type="text"
-                        name="author"
+                        name="name"
                         class="reservation-fields"
                         size="30"
                         value=""
@@ -485,20 +482,17 @@
                     </p>
                   </div>
                 </div>
-                <!--end row-->
                 <div class="row">
                   <div class="col-md-4">
                     <label>Date*</label>
                     <p>
                       <input
                         type="date"
-                        name="datepicker"
-                        id="datepicker"
+                        name="date"
                         class="reservation-fields"
                         size="30"
                         value=""
                         aria-required="true"
-                        aria-invalid="false"
                       />
                     </p>
                   </div>
@@ -527,8 +521,8 @@
                     <label>Seats*</label>
                     <p>
                       <input
-                        type="text"
-                        name="persons"
+                        type="number"
+                        name="seats"
                         class="reservation-fields"
                         size="30"
                         value=""
@@ -537,18 +531,13 @@
                     </p>
                   </div>
                 </div>
-                <!--end row-->
                 <label>Special Requests</label>
                 <p>
                   <textarea
-                    name="message"
-                    id="message2"
+                    name="special_requests"
                     class="reservation-fields"
                     cols="100"
                     rows="4"
-                    tabindex="4"
-                    size="30"
-                    value=""
                   ></textarea>
                 </p>
                 <p class="antispam">
@@ -558,6 +547,29 @@
                   <input type="submit" value="Book Now" id="submit" />
                 </p>
               </form>
+              
+              <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+              <script>
+                $(document).ready(function () {
+                  $("#reservation-form").on("submit", function (e) {
+                    e.preventDefault(); // Prevent default form submission
+                    let formData = $(this).serialize(); // Serialize form data
+              
+                    $.ajax({
+                      type: "POST",
+                      url: "{% url 'submit_reservation' %}",
+                      data: formData,
+                      success: function (response) {
+                        alert("Reservation submitted successfully!");
+                        $("#reservation-form")[0].reset(); // Reset the form on success
+                      },
+                      error: function (xhr) {
+                        alert("Something went wrong. Please try again.");
+                      },
+                    });
+                  });
+                });
+              </script>              
             </div>
             <!-- reservation_txt -->
 

@@ -38,8 +38,16 @@
       media="all"
     />
     <!-- favicons -->
-    <link rel="icon" href="{% static 'images/icons/favicon-32x32.png' %}" sizes="32x32" />
-    <link rel="icon" href="{% static 'images/icons/favicon-192x192.png' %}" sizes="192x192" />
+    <link
+      rel="icon"
+      href="{% static 'images/icons/favicon-32x32.png' %}"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      href="{% static 'images/icons/favicon-192x192.png' %}"
+      sizes="192x192"
+    />
     <link
       rel="apple-touch-icon-precomposed"
       href="{% static 'images/icons/favicon-180x180.png' %}"
@@ -267,7 +275,10 @@
             <!-- LOGO -->
             <div class="logo-1">
               <a href="index.html"
-                ><img class="img-fluid" src="{% static 'images/logo-dina-white.png' %}" alt=""
+                ><img
+                  class="img-fluid"
+                  src="{% static 'images/logo-dina-white.png' %}"
+                  alt=""
               /></a>
             </div>
             <!-- MENU-DESKTOP -->
@@ -391,9 +402,7 @@
           <h1>Welcome</h1>
           <p>Discover and experience fine selection of international tastes</p>
           <p>
-            <a href="reservation" class="view-more more-white"
-              >Book a Table</a
-            >
+            <a href="reservation" class="view-more more-white">Book a Table</a>
           </p>
         </div>
       </div>
@@ -922,7 +931,9 @@
     <!-- Add parallax class to a section and a background image to create the parallax effect -->
     <section
       class="home-widget parallax parallax-video3 margin-b72"
-      style="background-image: url('static/images/top-headers/reservation-image.jpg')"
+      style="
+        background-image: url('static/images/top-headers/reservation-image.jpg');
+      "
     >
       <div class="parallax-content">
         <div class="container">
@@ -1006,8 +1017,7 @@
                 </figure>
                 <div class="image-box-content">
                   <h5>Address</h5>
-                  <p>ZED Park
-                    El-Horeya, Second Al Sheikh Zayed</p>
+                  <p>ZED Park El-Horeya, Second Al Sheikh Zayed</p>
                 </div>
               </div>
               <!-- /box-contact -->
@@ -1044,7 +1054,15 @@
                 style="border: none"
               >
               </iframe> -->
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3156.968873833228!2d30.994429199999995!3d30.043228700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14585ba0263118cf%3A0xc58e189c21cc4eeb!2sZED%20Park!5e1!3m2!1sen!2seg!4v1732884363260!5m2!1sen!2seg" width="600" height="450" style="border:none;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3156.968873833228!2d30.994429199999995!3d30.043228700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14585ba0263118cf%3A0xc58e189c21cc4eeb!2sZED%20Park!5e1!3m2!1sen!2seg!4v1732884363260!5m2!1sen!2seg"
+                width="600"
+                height="450"
+                style="border: none"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              >
               </iframe>
             </div>
             <!--/gmaps-->
@@ -1070,44 +1088,27 @@
         <div class="row">
           <div class="col-md-10 offset-md-1">
             <div id="contact-form-holder">
-              <form
-                method="post"
-                id="contact-form"
-                action="include/contact-process.php"
-              >
+              <form method="post" id="contact-form">
+                {% csrf_token %}
                 <div class="row">
                   <div class="col-md-6">
                     <label>Name</label>
                     <p>
-                      <input
-                        type="text"
-                        name="name"
-                        class="reservation-fields"
-                      />
+                      <input type="text" name="name" class="reservation-fields" />
                     </p>
                   </div>
                   <div class="col-md-6">
                     <label>Email</label>
                     <p>
-                      <input
-                        type="text"
-                        name="email"
-                        class="reservation-fields"
-                      />
+                      <input type="text" name="email" class="reservation-fields" />
                     </p>
                   </div>
                 </div>
-                <!-- /col-md-6 -->
                 <label>Subject</label>
                 <input type="text" name="subject" class="reservation-fields" />
                 <label>Message</label>
                 <p>
-                  <textarea
-                    name="message"
-                    id="msg-contact"
-                    class="reservation-fields"
-                    rows="7"
-                  ></textarea>
+                  <textarea name="message" id="msg-contact" class="reservation-fields" rows="7"></textarea>
                 </p>
                 <p class="antispam">
                   Leave this empty: <input type="text" name="url" />
@@ -1116,6 +1117,30 @@
                   <input type="submit" value="Send message" id="submit" />
                 </p>
               </form>
+              
+              <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+              <script>
+                $(document).ready(function () {
+                  $("#contact-form").on("submit", function (e) {
+                    e.preventDefault(); // Prevent default form submission
+                    let formData = $(this).serialize(); // Serialize form data
+              
+                    $.ajax({
+                      type: "POST",
+                      url: "{% url 'submit_contact' %}", // URL for the POST request
+                      data: formData,
+                      success: function (response) {
+                        alert("Message sent successfully!");
+                        $("#contact-form")[0].reset(); // Reset the form on success
+                      },
+                      error: function (xhr) {
+                        alert("Something went wrong. Please try again.");
+                      },
+                    });
+                  });
+                });
+              </script>
+              
             </div>
             <!-- contact-form-holder-->
             <div id="output-contact"></div>
@@ -1124,23 +1149,24 @@
         </div>
 
         <script>
-          document.getElementById("contact-form").addEventListener("submit", function (event) {
-          // Prevent the default form submission behavior
-          event.preventDefault();
+          document
+            .getElementById("contact-form")
+            .addEventListener("submit", function (event) {
+              // Prevent the default form submission behavior
+              event.preventDefault();
 
-          // Get form data
-          const formData = new FormData(event.target);
-          const formObject = {};
+              // Get form data
+              const formData = new FormData(event.target);
+              const formObject = {};
 
-          // Convert form data to an object
-          formData.forEach((value, key) => {
-            formObject[key] = value;
-          });
+              // Convert form data to an object
+              formData.forEach((value, key) => {
+                formObject[key] = value;
+              });
 
-          // Log form data to the console
-          console.log("Form Data Submitted:", formObject);
-        });
-
+              // Log form data to the console
+              console.log("Form Data Submitted:", formObject);
+            });
         </script>
 
         <!--.row-->
