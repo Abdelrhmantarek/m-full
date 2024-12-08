@@ -274,7 +274,7 @@
           <div class="nav-content-1">
             <!-- LOGO -->
             <div class="logo-1">
-              <a href="index.html"
+              <a href="/"
                 ><img
                   class="img-fluid"
                   src="{% static 'images/logo-dina-white.png' %}"
@@ -285,7 +285,7 @@
             <div class="nav-holder nav-holder-1 nav-holder-desktop">
               <ul id="menu-menu-1" class="menu-nav menu-nav-1">
                 <li class="menu-item current-menu-item">
-                  <a href="index.html">Home</a>
+                  <a href="/">Home</a>
                 </li>
                 <li class="menu-item">
                   <a href="menu">Menu</a>
@@ -533,384 +533,117 @@
                 <h2>Starters</h2>
               </div>
               <div class="menu-holder menu-holder-v2 starters">
+                {% for starter in starters %}
                 <div class="menu-post-v2 cols4">
                   <div class="menu-post-img-v2">
                     <a
-                      href="{% static 'images/menu/double-tomato-bruschetta.jpg' %}"
+                      href="{{ starter.image.url }}"
                       class="lightbox"
-                      title="Tomato Bruschetta"
+                      title="{{ starter.name }}"
                       ><img
-                        src="{% static 'images/menu/double-tomato-bruschetta.jpg' %}"
+                        src="{{ starter.image.url }}"
                         class="img-fluid"
-                        alt=""
+                        alt="{{ starter.name }}"
                         width="400"
                         height="400"
                     /></a>
                   </div>
-                  <h4 class="menu-title-v2">Tomato Bruschetta</h4>
-                  <div class="menu-text">Tomatoes / Olive Oil / Cheese</div>
-                  <div class="menu-price-v2">$4.00</div>
+                  <h4 class="menu-title-v2">{{ starter.name }}</h4>
+                  <!-- <div class="menu-text">Tomatoes / Olive Oil / Cheese</div>  $4.00 -->
+                  <div class="menu-price-v2">${{ starter.price }}</div>
                 </div>
-                <div class="menu-post-v2 cols4">
-                  <div class="menu-post-img-v2">
-                    <a
-                      href="{% static 'images/menu/marinated-grilled-shrimp.jpg' %}"
-                      class="lightbox"
-                      title="Marinated Grilled Shrimp"
-                      ><img
-                        src="{% static 'images/menu/marinated-grilled-shrimp.jpg' %}"
-                        class="img-fluid"
-                        alt=""
-                        width="400"
-                        height="400"
-                    /></a>
-                  </div>
-                  <h4 class="menu-title-v2">Marinated Grilled Shrimp</h4>
-                  <div class="menu-text">
-                    Fresh Shrimp / Oive Oil / Tomato Sauce
-                  </div>
-                  <div class="menu-price-v2">$7.00</div>
-                </div>
-                <div class="menu-post-v2 cols4">
-                  <div class="menu-post-img-v2">
-                    <a
-                      href="{% static 'images/menu/avocado-tomato.jpg' %}"
-                      class="lightbox"
-                      title="Avocado &amp; Mango Salsa"
-                      ><img
-                        src="{% static 'images/menu/avocado-tomato.jpg' %}"
-                        class="img-fluid"
-                        alt=""
-                        width="400"
-                        height="400"
-                    /></a>
-                  </div>
-                  <h4 class="menu-title-v2">Avocado &amp; Mango Salsa</h4>
-                  <div class="menu-text">Avocado / Mango / Tomatoes</div>
-                  <div class="menu-price-v2">$5.00</div>
-                </div>
-                <div class="menu-post-v2 cols4">
-                  <div class="menu-post-img-v2">
-                    <a
-                      href="{% static 'images/menu/baked-potato-skins.jpg' %}"
-                      class="lightbox"
-                      title="Baked Potato Skins"
-                      ><img
-                        src="{% static 'images/menu/baked-potato-skins.jpg' %}"
-                        class="img-fluid"
-                        alt=""
-                        width="400"
-                        height="400"
-                    /></a>
-                  </div>
-                  <h4 class="menu-title-v2">Baked Potato Skins</h4>
-                  <div class="menu-text">Potatoes / Oil / Garlic</div>
-                  <div class="menu-price-v2">$9.00</div>
-                </div>
+                {% endfor %}
               </div>
+
               <!--/starters-->
+
               <div class="categ-box">
                 <div class="categ-name main-courses">
                   <h2>Main Courses</h2>
                 </div>
                 <div class="menu-holder menu-holder-v2 main-courses">
+                  {% for main_course in main_courses %}
                   <div class="menu-post-v2 cols4">
                     <div class="menu-post-img-v2">
                       <a
-                        href="{% static 'images/menu/pork-chops.jpg' %}"
+                        href="{{ main_course.image.url }}"
                         class="lightbox"
-                        title="Braised Pork Chops"
+                        title="{{ main_course.name }}"
                         ><img
-                          src="{% static 'images/menu/pork-chops.jpg' %}"
+                          src="{{ main_course.image.url }}"
                           class="img-fluid"
-                          alt=""
-                          width="400"
-                          height="400"
-                      /></a>
-                    </div>
-                    <h4 class="menu-title-v2">Braised Pork Chops</h4>
-                    <div class="menu-text">
-                      4 bone-in pork chops, olive oil, garlic, onion
-                    </div>
-                    <div class="menu-price-v2">$21.00</div>
-                  </div>
-                  <div class="menu-post-v2 cols4">
-                    <div class="menu-post-img-v2">
-                      <a
-                        href="{% static 'images/menu/prime-rib-primer.jpg' %}"
-                        class="lightbox"
-                        title="Prime Rib"
-                        ><img
-                          src="{% static 'images/menu/prime-rib-primer.jpg' %}"
-                          class="img-fluid"
-                          alt=""
-                          width="400"
-                          height="400"
-                      /></a>
-                    </div>
-                    <h4 class="menu-title-v2">Prime Rib</h4>
-                    <div class="menu-text">
-                      Rib, rosemary, black pepper, red wine
-                    </div>
-                    <div class="menu-price-v2">$20.00</div>
-                  </div>
-                  <div class="menu-post-v2 cols4">
-                    <div class="menu-post-img-v2">
-                      <a
-                        href="{% static 'images/menu/coconut-curry-fried-chicken.jpg' %}"
-                        class="lightbox"
-                        title="Coconut Fried Chicken"
-                        ><img
-                          src="{% static 'images/menu/coconut-curry-fried-chicken.jpg' %}"
-                          class="img-fluid"
-                          alt=""
-                          width="400"
-                          height="400"
-                      /></a>
-                    </div>
-                    <h4 class="menu-title-v2">Coconut Fried Chicken</h4>
-                    <div class="menu-text">
-                      8 chicken pieces, coconut milk, oil
-                    </div>
-                    <div class="menu-price-v2">$19.00</div>
-                  </div>
-                  <div class="menu-post-v2 cols4">
-                    <div class="menu-post-img-v2">
-                      <a
-                        href="{% static 'images/menu/sriracha-beef-skewers.jpg' %}"
-                        class="lightbox"
-                        title="Sriracha Beef Skewers"
-                        ><img
-                          src="{% static 'images/menu/sriracha-beef-skewers.jpg' %}"
-                          class="img-fluid"
-                          alt=""
-                          width="400"
-                          height="400"
-                      /></a>
-                    </div>
-                    <h4 class="menu-title-v2">Sriracha Beef Skewers</h4>
-                    <div class="menu-text">
-                      Beef, garlic, sesame oil, vinegar
-                    </div>
-                    <div class="menu-price-v2">$12.00</div>
-                  </div>
-                  <div class="menu-post-v2 cols4">
-                    <div class="menu-post-img-v2">
-                      <a
-                        href="{% static 'images/menu/roast-chicken.jpg' %}"
-                        class="lightbox"
-                        title="Chicken with Garlic &amp; Tomatoes"
-                        ><img
-                          src="{% static 'images/menu/roast-chicken.jpg' %}"
-                          class="img-fluid"
-                          alt=""
+                          alt="{{ main_course.name }}"
                           width="400"
                           height="400"
                       /></a>
                     </div>
                     <h4 class="menu-title-v2">
-                      Chicken with Garlic &amp; Tomatoes
+                      {{ main_course.name }}
                     </h4>
-                    <div class="menu-text">
+                    <!-- <div class="menu-text">
                       Chicken, cherry tomatoes, olive oil, dry white wine
-                    </div>
-                    <div class="menu-price-v2">$12.00</div>
+                    </div> -->
+                    <div class="menu-price-v2">${{ main_course.price }}</div>
                   </div>
+                  {% endfor %}
                 </div>
               </div>
               <!--/main courses-->
+
               <div class="categ-box">
                 <div class="categ-name soups">
                   <h2>Soups</h2>
                 </div>
                 <div class="menu-holder menu-holder-v2 soups">
+                  {% for soup in soups %}
                   <div class="menu-post-v2 cols4">
                     <div class="menu-post-img-v2">
                       <a
-                        href="{% static 'images/menu/terrific-turkey-chili.jpg' %}"
+                        href="{{ soup.image.url }}"
                         class="lightbox"
-                        title="Terrific Turkey Chili"
+                        title="{{ soup.name }}"
                         ><img
-                          src="{% static 'images/menu/terrific-turkey-chili.jpg' %}"
+                          src="{{ soup.image.url }}"
                           class="img-fluid"
-                          alt=""
+                          alt="{{ soup.name }}"
                           width="400"
                           height="400"
                       /></a>
                     </div>
-                    <h4 class="menu-title-v2">Terrific Turkey Chili</h4>
-                    <div class="menu-text">
-                      Turkey, oregano, tomato paste, peppers
-                    </div>
-                    <div class="menu-price-v2">$8.00</div>
+                    <h4 class="menu-title-v2">{{ soup.name }}</h4>
+                    <div class="menu-price-v2">${{ soup.price }}</div>
                   </div>
-                  <div class="menu-post-v2 cols4">
-                    <div class="menu-post-img-v2">
-                      <a
-                        href="{% static 'images/menu/italian-sausage-tortellini-soup.jpg' %}"
-                        class="lightbox"
-                        title="Italian Sausage Tortellini"
-                        ><img
-                          src="{% static 'images/menu/italian-sausage-tortellini-soup.jpg' %}"
-                          class="img-fluid"
-                          alt=""
-                          width="400"
-                          height="400"
-                      /></a>
-                    </div>
-                    <h4 class="menu-title-v2">Italian Sausage Tortellini</h4>
-                    <div class="menu-text">
-                      Cheese tortellini, sausage, garlic, carrots, zucchini
-                    </div>
-                    <div class="menu-price-v2">$9.00</div>
-                  </div>
-                  <div class="menu-post-v2 cols4">
-                    <div class="menu-post-img-v2">
-                      <a
-                        href="{% static 'images/menu/cream-asparagus-soup.jpg' %}"
-                        class="lightbox"
-                        title="Cream of Asparagus Soup"
-                        ><img
-                          src="{% static 'images/menu/cream-asparagus-soup.jpg' %}"
-                          class="img-fluid"
-                          alt=""
-                          width="400"
-                          height="400"
-                      /></a>
-                    </div>
-                    <h4 class="menu-title-v2">Cream of Asparagus Soup</h4>
-                    <div class="menu-text">
-                      Asparagus, potato, celery, onion, pepper
-                    </div>
-                    <div class="menu-price-v2">$10.00</div>
-                  </div>
-                  <div class="menu-post-v2 cols4">
-                    <div class="menu-post-img-v2">
-                      <a
-                        href="{% static 'images/menu/italian-sausage-soup.jpg' %}"
-                        class="lightbox"
-                        title="Italian Sausage Soup"
-                        ><img
-                          src="{% static 'images/menu/italian-sausage-soup.jpg' %}"
-                          class="img-fluid"
-                          alt=""
-                          width="400"
-                          height="400"
-                      /></a>
-                    </div>
-                    <h4 class="menu-title-v2">Italian Sausage Soup</h4>
-                    <div class="menu-text">
-                      Italian sausage, garlic, carrots, zucchini
-                    </div>
-                    <div class="menu-price-v2">$9.00</div>
-                  </div>
-                  <div class="menu-post-v2 cols4">
-                    <div class="menu-post-img-v2">
-                      <a
-                        href="{% static 'images/menu/creamy-chicken-wild-rice-soup.jpg' %}"
-                        class="lightbox"
-                        title="Creamy Chicken &amp; Wild Rice Soup"
-                        ><img
-                          src="{% static 'images/menu/creamy-chicken-wild-rice-soup.jpg' %}"
-                          class="img-fluid"
-                          alt=""
-                          width="400"
-                          height="400"
-                      /></a>
-                    </div>
-                    <h4 class="menu-title-v2">
-                      Creamy Chicken &amp; Wild Rice Soup
-                    </h4>
-                    <div class="menu-text">
-                      Cooked chicken, salt, butter, heavy cream
-                    </div>
-                    <div class="menu-price-v2">$12.00</div>
-                  </div>
-                  <div class="menu-post-v2 cols4">
-                    <div class="menu-post-img-v2">
-                      <a
-                        href="{% static 'images/menu/delicious-ham-potato-soup.jpg' %}"
-                        class="lightbox"
-                        title="Ham and Potato Soup"
-                        ><img
-                          src="{% static 'images/menu/delicious-ham-potato-soup.jpg' %}"
-                          class="img-fluid"
-                          alt=""
-                          width="400"
-                          height="400"
-                      /></a>
-                    </div>
-                    <h4 class="menu-title-v2">Ham and Potato Soup</h4>
-                    <div class="menu-text">
-                      Potatoes, ham, celery, onion, milk
-                    </div>
-                    <div class="menu-price-v2">$10.00</div>
-                  </div>
+                  {% endfor %}
                 </div>
               </div>
               <!--/soups-->
+
               <div class="categ-box">
                 <div class="categ-name desserts">
                   <h2>Desserts</h2>
                 </div>
                 <div class="menu-holder menu-holder-v2 desserts">
+
+                  {% for dessert in desserts %}
                   <div class="menu-post-v2 cols4">
                     <div class="menu-post-img-v2">
                       <a
-                        href="{% static 'images/menu/summer-berry.jpg' %}"
+                        href="{{ dessert.image.url }}"
                         class="lightbox"
-                        title="Summer Berry and Coconut Tart"
+                        title="{{ dessert.name }}"
                         ><img
-                          src="{% static 'images/menu/summer-berry.jpg' %}"
+                          src="{{ dessert.image.url }}"
                           class="img-fluid"
-                          alt=""
+                          alt="{{ dessert.name }}"
                           width="400"
                           height="400"
                       /></a>
                     </div>
-                    <h4 class="menu-title-v2">Summer Berry and Coconut Tart</h4>
-                    <div class="menu-text">
-                      Raspberries, blackberries, blueberries, graham cracker
-                      crumbs
-                    </div>
-                    <div class="menu-price-v2">$12.00</div>
+                    <h4 class="menu-title-v2">{{ dessert.name }}</h4>
+                    <div class="menu-price-v2">${{ dessert.price }}</div>
                   </div>
-                  <div class="menu-post-v2 cols4">
-                    <div class="menu-post-img-v2">
-                      <a
-                        href="{% static 'images/menu/pumpkin-cookies.jpg' %}"
-                        class="lightbox"
-                        title="Pumpkin Cookies Cream Cheese"
-                        ><img
-                          src="{% static 'images/menu/pumpkin-cookies.jpg' %}"
-                          class="img-fluid"
-                          alt=""
-                          width="400"
-                          height="400"
-                      /></a>
-                    </div>
-                    <h4 class="menu-title-v2">Pumpkin Cookies Cream Cheese</h4>
-                    <div class="menu-text">Pumpkin, sugar, butter, eggs</div>
-                    <div class="menu-price-v2">$10.00</div>
-                  </div>
-                  <div class="menu-post-v2 cols4">
-                    <div class="menu-post-img-v2">
-                      <a
-                        href="{% static 'images/menu/chocolate-cupcakes.jpg' %}"
-                        class="lightbox"
-                        title="Double Chocolate Cupcakes"
-                        ><img
-                          src="{% static 'images/menu/chocolate-cupcakes.jpg' %}"
-                          class="img-fluid"
-                          alt=""
-                          width="400"
-                          height="400"
-                      /></a>
-                    </div>
-                    <h4 class="menu-title-v2">Double Chocolate Cupcakes</h4>
-                    <div class="menu-text">Chocolate, eggs, vanilla, milk</div>
-                    <div class="menu-price-v2">$7.00</div>
-                  </div>
+                  {% endfor %}
+
                 </div>
               </div>
               <!--/desserts-->
@@ -1094,13 +827,21 @@
                   <div class="col-md-6">
                     <label>Name</label>
                     <p>
-                      <input type="text" name="name" class="reservation-fields" />
+                      <input
+                        type="text"
+                        name="name"
+                        class="reservation-fields"
+                      />
                     </p>
                   </div>
                   <div class="col-md-6">
                     <label>Email</label>
                     <p>
-                      <input type="text" name="email" class="reservation-fields" />
+                      <input
+                        type="text"
+                        name="email"
+                        class="reservation-fields"
+                      />
                     </p>
                   </div>
                 </div>
@@ -1108,7 +849,12 @@
                 <input type="text" name="subject" class="reservation-fields" />
                 <label>Message</label>
                 <p>
-                  <textarea name="message" id="msg-contact" class="reservation-fields" rows="7"></textarea>
+                  <textarea
+                    name="message"
+                    id="msg-contact"
+                    class="reservation-fields"
+                    rows="7"
+                  ></textarea>
                 </p>
                 <p class="antispam">
                   Leave this empty: <input type="text" name="url" />
@@ -1117,14 +863,14 @@
                   <input type="submit" value="Send message" id="submit" />
                 </p>
               </form>
-              
+
               <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
               <script>
                 $(document).ready(function () {
                   $("#contact-form").on("submit", function (e) {
                     e.preventDefault(); // Prevent default form submission
                     let formData = $(this).serialize(); // Serialize form data
-              
+
                     $.ajax({
                       type: "POST",
                       url: "{% url 'submit_contact' %}", // URL for the POST request
@@ -1140,7 +886,6 @@
                   });
                 });
               </script>
-              
             </div>
             <!-- contact-form-holder-->
             <div id="output-contact"></div>

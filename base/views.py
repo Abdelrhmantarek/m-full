@@ -7,7 +7,23 @@ from .models import *
 
 # HOME-PAGE
 def home(request):
-    return render(request, 'index.html')
+
+    starters = Menu.objects.filter(type="Starter")  # Fetch all starters
+    main_courses = Menu.objects.filter(type="Main Course")  # Fetch all main courses
+    soups = Menu.objects.filter(type="Soup") # Fetch all Soups
+    desserts = Menu.objects.filter(type="Dessert") # Fetch all Soups
+
+    print(starters)
+
+    context = {
+        "starters": starters,
+        "main_courses": main_courses,
+        "soups":soups,
+        "desserts":desserts
+    }
+
+
+    return render(request, 'index.html', context)
 
 
 # Handle AJAX Contact Form Submission
@@ -25,9 +41,14 @@ def submit_contact(request):
     else:
         return JsonResponse({'success': False, 'message': 'Invalid request.'}, status=400)
 
-# MENU-PAGE
+# # MENU-PAGE
+# def menu(request):
+#     return render(request, 'menu.html')
+
 def menu(request):
-    return render(request, 'menu.html')
+    # Fetch all menu items and group them by type
+    menu_items = Menu.objects.all().order_by('type')  # You can customize the order if needed
+    return render(request, 'menu.html', {'menu_items': menu_items})
 
 
 # RESERVATION-PAGE
